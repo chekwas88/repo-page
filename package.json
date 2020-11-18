@@ -10,7 +10,6 @@
   },
   "author": "chekwas88",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "node-sass": "^5.0.0"
   }
