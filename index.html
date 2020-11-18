@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Your Repositories</title>
+</head>
+<body>
+    <div id="app" class="root">
+        <header class="header">
+            
+            <div class="navigation">
+                <div class="navigation__mobile">
+                    <div id="burgerdiv" class="navigation__mobile-open show">
+                      <button id="hamburger"><svg height="24" class="navigation__mobile-icon" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path></svg></button>
+                    </div>
+                </div>
+                <a href="#" class="navigation__logo">
+                    <svg class="navigation__logo-icon">
+                        <use href="img/sprite.svg#icon-github"></use>
+                    </svg>
+                </a>
+                <div id="navbar" class="navigation__wrapper ">
+                    <form action="#" class="navigation__search">
+                        <input type="text" class="navigation__search__input" placeholder="Search or jump to...">                            
+                    </form>
+                    <nav class="navigation__nav">
+                        <ul class="navigation__list">
+                            <li class="navigation__item"><a href="#" class="navigation__link">Pull requests</a></li>
+                            <li class="navigation__item"><a href="#" class="navigation__link">Issues</a></li>
+                            <li class="navigation__item"><a href="#" class="navigation__link">Marketplace</a></li>
+                            <li class="navigation__item"><a href="#" class="navigation__link">Explore</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="nav-icon">
+                    <div class="nav-icon__box bell">
+                        <svg class="nav-icon__icon">
+                            <use href="img/sprite.svg#icon-bell"></use>
+                        </svg>
+                        <span class="nav-icon__notification"></span>
+                    </div>
+                    <div class="nav-icon__box box-hide">
+                        <svg class="nav-icon__icon">
+                            <use href="img/sprite.svg#icon-add"></use>
+                        </svg>
+                        <svg class="nav-icon__icon">
+                            <use href="img/sprite.svg#icon-arrow_drop_down"></use>
+                        </svg>
+                        
+                    </div>
+                    <div class="nav-icon__box box-hide">
+                        <div class="nav-icon__user"></div>
+                        <svg class="nav-icon__icon">
+                            <use href="img/sprite.svg#icon-arrow_drop_down"></use>
+                        </svg>                    </div>
+                </div>
+            </div>
+            
+
+            
+            
+        </header>
+        <main class="container">
+            <div class="tab tab-hide">
+                <ul class="tab__list">
+                    <li class="tab__item link-stale">
+                        <a href="#" class="tab__link">
+                            <svg class="tab__icon">
+                                <use href="img/sprite.svg#icon-overview"></use>
+                            </svg>
+                            Overview
+                        </a>
+                    </li>
+                    <li id="largelistRepo" class="tab__item link-active">
+                        <a href="#repositories" class="tab__link repo">
+                            <svg class="tab__icon">
+                                <use href="img/sprite.svg#icon-repo"></use>
+                            </svg>
+                            Repositories
+                        </a>
+                    </li>
+                    <li class="tab__item link-stale">
+                        <a href="#" class="tab__link">
+                            <svg class="tab__icon">
+                                <use href="img/sprite.svg#icon-projects"></use>
+                            </svg>
+                            Projects
+                        </a>
+                    </li>                    
+                    <li class="tab__item link-stale">
+                        <a href="#" class="tab__link">
+                            <svg class="tab__icon">
+                                <use href="img/sprite.svg#icon-package"></use>
+                            </svg>
+                            Packages
+                        </a>
+                    </li>               
+                 </ul>
+            </div>
+            <div class="content">
+                <section class="content__profile">
+                    <div class="content__profile-box">
+                        <div class="content__pic-container"></div>
+                    
+                        <div class="content__profile-info"></div>
+                    </div>
+                    <div role="button" class="content__smiley">
+                        <svg class="content__smiley-icon">
+                            <use href="img/sprite.svg#icon-smile"></use>
+                        </svg>
+                        <span>set Status</span>
+                    </div>
+                   
+                </section>
+                <section class="content__repo">
+                    <div class="tab tab-show">
+                        <ul class="tab__list">
+                            <li class="tab__item link-stale">
+                                <a href="#" class="tab__link">
+                                    <svg class="tab__icon">
+                                        <use href="img/sprite.svg#icon-overview"></use>
+                                    </svg>
+                                    Overview
+                                </a>
+                            </li>
+                            <li id="smalllistRepo" class="tab__item link-active">
+                                <a href="#repositories" class="tab__link repo">
+                                    <svg class="tab__icon">
+                                        <use href="img/sprite.svg#icon-repo"></use>
+                                    </svg>
+                                    Repositories
+                                </a>
+                            </li>
+                            <li class="tab__item link-stale">
+                                <a href="#" class="tab__link">
+                                    <svg class="tab__icon">
+                                        <use href="img/sprite.svg#icon-projects"></use>
+                                    </svg>
+                                    Projects
+                                </a>
+                            </li>                    
+                            <li class="tab__item link-stale">
+                                <a href="#" class="tab__link">
+                                    <svg class="tab__icon">
+                                        <use href="img/sprite.svg#icon-package"></use>
+                                    </svg>
+                                    Packages
+                                </a>
+                            </li>               
+                         </ul>
+                    </div>
+                    <div class="content__form">
+                        <form action="#" class="content__search">
+                            <input type="text" class="content__search__input" placeholder="Find a repository...">                            
+                        </form>
+                    </div>
+                   
+                    
+                </section>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="./script/mobilenav.js"></script>
+    <script type="module" src="./script/construct.js"></script>
+</body>
+</html>
