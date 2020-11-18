@@ -1,6 +1,6 @@
 import { graphql } from "https://cdn.skypack.dev/@octokit/graphql";
 
-const token = '11c1950186f4922647670d5e68c9ecd8ec1a93dc';
+const token = '69c8554bf91dbb43a91f5f8aef4618bd2b4f9d64';
 
 const getDataQuery = `
   query { 
