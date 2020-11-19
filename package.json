@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:sass": "node-sass sass/main.scss css/style.css -w",
-    "compile:sass": "node-sass sass/main.scss css/style.css"
+    "watch:sass": "node-sass views/sass/main.scss views/css/style.css -w",
+    "compile:sass": "node-sass views/sass/main.scss views/css/style.css",
+    "start": "node server.js"
   },
   "author": "chekwas88",
   "license": "MIT",
   "devDependencies": {
     "node-sass": "^5.0.0"
+  },
+  "dependencies": {
+    "@octokit/graphql": "^4.5.7",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
   }
 }

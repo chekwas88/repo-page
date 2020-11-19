@@ -1,39 +1,3 @@
-import { graphql } from "https://cdn.skypack.dev/@octokit/graphql";
-
-const token = '69c8554bf91dbb43a91f5f8aef4618bd2b4f9d64';
-
-const getDataQuery = `
-  query { 
-   
-    viewer {
-      name
-      login
-      bio
-      avatarUrl
-      repositories(first: 20 privacy: PUBLIC orderBy: {field: CREATED_AT direction: DESC} ){
-        totalCount
-        nodes{
-          name
-          description
-          pushedAt
-          stargazerCount
-          languages(last: 20){
-            nodes{
-              name
-              color
-            }
-          }
-        }
-      }
-    }
-  }
-`
-const auth = {
-  headers: {
-    authorization: `token ${token}`
-  }
-}
-
 const dateFormat = (currentTime, repoTime) => {
   const msPerMinute = 60 * 1000;
   const msPerHour = msPerMinute * 60;
@@ -53,21 +17,21 @@ const dateFormat = (currentTime, repoTime) => {
 
     else if (elapsed < msPerDay ) {
       return `updated ${Math.round(elapsed/msPerHour )} hours ago`;   
- }
+  }
 
- else if (elapsed < msPerMonth) {
-     return `updated  ${Math.round(elapsed/msPerDay)}  days ago `;   
- }
+  else if (elapsed < msPerMonth) {
+      return `updated  ${Math.round(elapsed/msPerDay)}  days ago `;   
+  }
 
- else if (elapsed < msPerYear) {
-   const month = new Intl.DateTimeFormat('en-US', {month: 'long', day:"numeric"}).format(repoTime)
-     return `updated  on ${month}`;   
- }
+  else if (elapsed < msPerYear) {
+    const month = new Intl.DateTimeFormat('en-US', {month: 'long', day:"numeric"}).format(repoTime)
+      return `updated  on ${month}`;   
+  }
 
- else {
-  const monthYear = new Intl.DateTimeFormat('en-US', {month: 'long', year: "numeric"}).format(repoTime)
-  return `updated  on ${monthYear}`;  
- }
+  else {
+    const monthYear = new Intl.DateTimeFormat('en-US', {month: 'long', year: "numeric"}).format(repoTime)
+    return `updated  on ${monthYear}`;  
+  }
 }
 
 const createListItem = (item) => {
@@ -102,13 +66,13 @@ const createListItem = (item) => {
 
   
   
-  if(item.languages.nodes.length){
+  if(item.primaryLanguage){
     const langSpan = document.createElement('span');
     const langColorSpan = document.createElement('span');
     const langTypeSpan = document.createElement('span');
     langColorSpan.className = "content__language-color";
-    langColorSpan.style = `background-color: ${item.languages.nodes[0].color}`;
-    langTypeSpan.textContent = item.languages.nodes[0].name;
+    langColorSpan.style = `background-color: ${item.primaryLanguage.color}`;
+    langTypeSpan.textContent = item.primaryLanguage.name;
     langTypeSpan.className = "content__language-type";
     langSpan.appendChild(langColorSpan);
     langSpan.appendChild(langTypeSpan);
@@ -145,8 +109,6 @@ const createListItem = (item) => {
   const buttonStarSvg = document.createElement("img");
   buttonStarSvg.src = "./img/SVG/star.svg";
   buttonStarSvg.alt = "star icon";
-
-
   buttonStarSvg.classList = "content__icon";
   
 
@@ -176,13 +138,11 @@ const renderUserData = (viewer) => {
   const profileimg = document.createElement('img');
   profileimg.src = viewer.avatarUrl;
   profileimg.alt = "profile-picture";
-  profileimg.loading = "lazy"
   profileimg.className = "content__picture";
 
   const navIconAvatar = document.createElement('img');
   navIconAvatar.src = viewer.avatarUrl;
   navIconAvatar.alt = "avatar";
-  navIconAvatar.loading = "lazy";
   navIconAvatar.className = "content__picture";
 
   const nameSpan = document.createElement('span');
@@ -248,11 +208,11 @@ const renderElements = ({viewer={}}) => {
 
 }
 
-// Make GraphQL call to load and render data onLoad
-
+// Make server call
 window.onload = async () =>{
   const container = document.getElementById('app');
-  const result = await graphql(getDataQuery, auth)
+  const result = await fetch('/api/repo').then((res) => res.json());
+  console.log({result})
   container.style = "display: block"
   renderElements(result)
 } 
